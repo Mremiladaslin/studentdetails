@@ -8,7 +8,7 @@ import com.remi.empapp.util.StudentUtil;
 public class StudentDAO{
 	public void save(StudentModel student) {
 JdbcTemplate jdbctemplate=StudentUtil.getJdbcTemplate();
-		String sql = "insert into students(id,name,department) values(?,?,?,?)";
+		String sql = "insert into students(name,department) values(?,?)";
 		Object[] params = { student.getName(), student.getDepartment() };
 		int rows = jdbctemplate.update(sql, params);
 		System.out.println("No of rows inserted: " + rows);
